@@ -14,7 +14,7 @@ import MerchantWalletPage from './pages/MerchantWalletPage';
 export default function App() {
   return (
     <StoreProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/coupon-admin-ui">
         <Routes>
           {/* Merchant Wallet — standalone */}
           <Route path="/merchant/wallet" element={<MerchantWalletPage />} />
