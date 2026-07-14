@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Geist', 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --color-brand-50: #f0f7ff;
+  --color-brand-100: #e0effe;
+  --color-brand-200: #b9dffd;
+  --color-brand-300: #7cc5fc;
+  --color-brand-400: #36a7f7;
+  --color-brand-500: #0c8ce8;
+  --color-brand-600: #006fc6;
+  --color-brand-700: #0058a0;
+  --color-brand-800: #044b84;
+  --color-brand-900: #0a3f6d;
+  --color-brand-950: #072849;
+
+  --color-accent-50: #f2fbf5;
+  --color-accent-100: #e0f7e8;
+  --color-accent-200: #c2efd2;
+  --color-accent-300: #92e1af;
+  --color-accent-400: #5bca83;
+  --color-accent-500: #35af61;
+  --color-accent-600: #258f4c;
+  --color-accent-700: #1f713e;
+  --color-accent-800: #1d5a34;
+  --color-accent-900: #194a2d;
+  --color-accent-950: #0a2817;
+
+  --color-surface: #f8f9fb;
+  --color-surface-alt: #f0f2f5;
+  --color-border: #e2e5ea;
+  --color-border-light: #eef0f3;
+
+  --animate-fade-in: fade-in 200ms ease-out;
+  --animate-slide-up: slide-up 250ms ease-out;
+  --animate-slide-down: slide-down 200ms ease-out;
+  --animate-scale-in: scale-in 200ms ease-out;
+  --animate-shimmer: shimmer 2s infinite;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slide-down {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scale-in {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-[var(--color-surface)] text-[var(--color-brand-950)] antialiased;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-[var(--color-brand-500)];
+  }
+}
+
+@utility skeleton {
+  background: linear-gradient(90deg, #eef0f3 25%, #f8f9fb 50%, #eef0f3 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+  border-radius: 6px;
+}
+
+@utility scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
